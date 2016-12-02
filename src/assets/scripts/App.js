@@ -1,12 +1,37 @@
-import $ from 'jquery';
+import riot from 'riot';
+import './../../templates/riot/index';
 
 /**
- * Application setup
+ * Initial application setup. Runs once upon every page load.
  *
  * @class App
+ * @constructor
  */
-export default class App {
+class App {
+
     constructor() {
-        $('.js-welcome').text('Welcome to the client-side boilerplate!');
+        this._setRoutes();
     }
+
+    /**
+     * @method _setRoutes
+     * @private
+     */
+    _setRoutes() {
+        // Routes for the Application.
+        const routes = [
+            { route:'/', tag:'layout-default', routes: [
+                { route:'/', tag:'home-view' },
+            ]},
+        ];
+
+        // Start riot and router.
+        riot.mount('*', {
+            routes,
+            options: {},
+        });
+    }
+
 }
+
+export default App;

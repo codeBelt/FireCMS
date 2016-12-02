@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "babel-polyfill": "6.9.1",
-    "jquery": "3.1.0"
+    "riot": "^3.0.1",
+    "structure-js": "0.14.6",
+    "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.8.0",
@@ -50,6 +52,7 @@
     "postcss-cssnext": "2.5.2",
     "postcss-discard-comments": "2.0.4",
     "postcss-import": "8.1.0",
+    "riotify": "^2.0.0",
     "run-sequence": "1.2.2",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
@@ -63,16 +66,14 @@
     "gulp-yuidoc": "0.1.2",
     "imagemin-pngquant": "5.0.0"
   },
-  "browser": {
-  },
-  "browserify-shim": {
-  },
+  "browser": {},
+  "browserify-shim": {},
   "engines": {
     "node": ">=6.5.0"
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015-riot"
     ],
     "plugins": [
       "transform-class-properties",

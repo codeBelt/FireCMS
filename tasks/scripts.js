@@ -32,6 +32,7 @@ function buildScripts() {
 
     const bundler = browserify(options)
         .external(vendorArray)
+        .transform('riotify', { type: 'babel' })
         .transform('babelify', { extensions: ['.js'] });
 
     bundler.on('update', () => {
