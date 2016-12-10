@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.9.1",
+    "firebase": "3.6.3",
     "riot": "3.0.2",
     "structure-js": "0.14.6",
     "whatwg-fetch": "2.0.1"
@@ -55,6 +56,8 @@
     "postcss-import": "8.1.0",
     "riotify": "2.0.0",
     "run-sequence": "1.2.2",
+    "tsify": "2.0.3",
+    "typescript": "2.1.4",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
     "watchify": "3.7.0"

@@ -25,15 +25,17 @@ function buildScripts() {
         cache: {},
         packageCache: {},
         plugin: plugins,
+        extensions: ['.js', '.ts'],
         debug: process.env.SOURCE_MAPS === 'true',
-        entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.js`],
+        entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.ts`],
         paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
     };
 
     const bundler = browserify(options)
         .external(vendorArray)
+        .plugin('tsify', { target: 'es6' })
         .transform('riotify', { type: 'babel' })
-        .transform('babelify', { extensions: ['.js'] });
+        .transform('babelify', { extensions: ['.js', '.ts'] });
 
     bundler.on('update', () => {
         notify.log('SCRIPTS: file update detected, rebuilding...');

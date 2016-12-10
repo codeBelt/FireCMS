@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
-import App from 'App';
+import App from './App';
 
 new App();
+console.log(`asdfasd`,);
