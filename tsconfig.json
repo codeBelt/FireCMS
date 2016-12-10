@@ -1,0 +1,13 @@
+{
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "compileOnSave": false,
+  "filesGlob": [
+  ],
+  "files": [
+    "typings/index.d.ts"
+  ],
+  "exclude": [
+  ]
+}
