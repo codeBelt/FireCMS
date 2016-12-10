@@ -3,8 +3,6 @@
     <div>Test</div>
 
     <script>
-        import EventBroker from 'structure-js/js/event/EventBroker';
-console.log(`EventBroker`, EventBroker);
         //--------------------------------------------------------------------------------
         // PROPERTIES
         //--------------------------------------------------------------------------------
