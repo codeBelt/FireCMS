@@ -6,7 +6,7 @@
 
 import del from 'del';
 import gulp from 'gulp';
-import pkg from './../package.json';
+import pkg from '../package.json';
 import runSequence from 'run-sequence';
 import yuidoc from 'gulp-yuidoc';
 

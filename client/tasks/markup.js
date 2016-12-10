@@ -11,7 +11,7 @@ import handlebarsHelpers from 'handlebars-helpers';
 import handlebarsLayouts from 'handlebars-layouts';
 import hb from 'gulp-hb';
 import notify from './notify';
-import pkg from './../package.json';
+import pkg from '../package.json';
 import prettify from 'gulp-prettify';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';

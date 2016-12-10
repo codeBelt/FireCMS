@@ -1,6 +1,6 @@
 docs/
 node/
-node_modules/
+../node_modules/
 web/
 .idea/
 

@@ -1,5 +1,5 @@
 import * as riot from 'riot'
-import './../../templates/riot/index';
+import '../../templates/riot/index';
 
 /**
  * Initial application setup. Runs once upon every page load.

@@ -9,7 +9,7 @@ import buffer from 'vinyl-buffer';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import notify from './notify';
-import pkg from './../package.json';
+import pkg from '../package.json';
 import source from 'vinyl-source-stream';
 import uglify from 'gulp-uglify';
 
