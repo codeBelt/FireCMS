@@ -1,0 +1,12 @@
+{
+  "name": "codebelt-firecms",
+  "dependencies": {
+    "firebase": "registry:npm/firebase#3.0.5+20160723033700"
+  },
+  "globalDependencies": {
+    "firebase": "registry:dt/firebase#2.4.1+20160412125105",
+    "koa": "registry:dt/koa#2.0.0+20161025101853",
+    "koa-bodyparser": "registry:dt/koa-bodyparser#3.0.0+20160928122441",
+    "koa-router": "registry:dt/koa-router#7.0.0+20160907102352"
+  }
+}
