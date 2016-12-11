@@ -18,7 +18,7 @@
   "dependencies": {
     "babel-polyfill": "6.9.1",
     "firebase": "3.6.3",
-    "koa": "^1.2.4",
+    "koa": "^2.0.0",
     "koa-bodyparser": "^2.3.0",
     "koa-router": "^5.4.0",
     "structure-js": "0.14.6",

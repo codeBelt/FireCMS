@@ -15,18 +15,24 @@ app.use(bodyParser());
 const router = new Router();
 
 
-app.use(async () => {
-    setTimeout(() => {
-        this.body = 'Hello asynchronous world!';
-    }, 100);
+app.use(router.routes());
+
+app.use(async (ctx, next) => {
+    const start:Date = new Date();
+    await next();
+    const ms:number = new Date().valueOf() - start.valueOf();
+    console.log(`${ctx.method} ${ctx.url} - ${ms.toString()}ms`);
 });
 
-app.listen(3000);
+router.get('/', async (ctx, next) => {
+    ctx.body = 'hello';
+    // await next();
+});
+app.listen(8080, console.log('Waiting on 8080'));
 /*
- router.get('/', obtenerPosts);
+
  // router.post('/posts', crearPost);
 
- app.use(router.routes());
 
  async function obtenerPosts(ctx) {
  ctx.body = 'hello';
@@ -68,4 +74,4 @@ app.listen(3000);
  // }
  }
 
- app.listen(3000, () => console.log('Esperando en puerto 3000'));*/
+ app.listen(8080, () => console.log('Esperando en puerto 8080'));*/
