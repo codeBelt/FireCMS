@@ -4,7 +4,6 @@ import * as bodyParser from 'koa-bodyparser';
 import * as firebase from 'firebase';
 import * as fetch from 'node-fetch';
 
-
 // https://firebase.googleblog.com/2016/01/keeping-our-promises-and-callbacks_76.html
 // https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/
 // http://blog.stevensanderson.com/2013/12/21/experiments-with-koa-and-javascript-generators/
@@ -14,12 +13,12 @@ const app = new Koa();
 app.use(bodyParser());
 app.use(router.routes());
 
-router.get('/', async (ctx, next) => {
-    firebase.initializeApp({
-        apiKey: 'AIzaSyDqBfvsMGjfiTXNHeG7RmcOl-AcyHM2AZY',
-        databaseURL: 'https://firecms-e950e.firebaseio.com'
-    });
+firebase.initializeApp({
+    apiKey: 'AIzaSyDqBfvsMGjfiTXNHeG7RmcOl-AcyHM2AZY',
+    databaseURL: 'https://firecms-e950e.firebaseio.com'
+});
 
+router.get('/', async (ctx, next) => {
     const firebaseRef = firebase.database().ref();
     const data = firebaseRef.child('cms/single/0/title');
     const results = await data.once('value');
