@@ -27,7 +27,7 @@ function buildScripts() {
         plugin: plugins,
         extensions: ['.js', '.ts'],
         debug: process.env.SOURCE_MAPS === 'true',
-        entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.ts`],
+        entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/index.ts`],
         paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
     };
 
@@ -57,12 +57,12 @@ function onUpdate(bundler) {
             notify.error('SCRIPTS: error', error);
             this.emit('end');
         })
-        .pipe(source('main.js'))
+        .pipe(source('index.js'))
         .pipe(buffer())
         .pipe(gulpIf(process.env.SOURCE_MAPS  === 'true', sourcemaps.init({ loadMaps: true })))
         .pipe(gulpIf(process.env.MINIFY === 'true', uglify()))
         .pipe(gulpIf(process.env.SOURCE_MAPS === 'true', sourcemaps.write('./')))
-        .pipe(gulp.dest(`${process.env.DIRECTORY_DEST}/assets/scripts/`))
+        .pipe(gulp.dest(`${process.env.DIRECTORY_DEST}/`))
         .on('end', browser.reload);
 }
 
