@@ -2,7 +2,6 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 
-// http://crocodillon.com/blog/asynchronous-callbacks-in-koa
 // https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/
 // http://blog.stevensanderson.com/2013/12/21/experiments-with-koa-and-javascript-generators/
 const config = {
