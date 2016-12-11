@@ -29,6 +29,7 @@ function buildScripts() {
         debug: process.env.SOURCE_MAPS === 'true',
         entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.ts`],
         paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
+        node: true,
     };
 
     const bundler = browserify(options)

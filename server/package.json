@@ -20,7 +20,8 @@
     "kcors": "^2.2.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
-    "koa-router": "^7.0.1"
+    "koa-router": "^7.0.1",
+    "node-fetch": "^1.6.3"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.8.0",

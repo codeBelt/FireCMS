@@ -2,9 +2,13 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 import * as firebase from 'firebase';
+import * as fetch from 'node-fetch';
 
+
+// https://firebase.googleblog.com/2016/01/keeping-our-promises-and-callbacks_76.html
 // https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/
 // http://blog.stevensanderson.com/2013/12/21/experiments-with-koa-and-javascript-generators/
+
 const router = new Router();
 const app = new Koa();
 app.use(bodyParser());
@@ -20,7 +24,10 @@ router.get('/', async (ctx, next) => {
     const data = firebaseRef.child('cms/single/0/title');
     const results = await data.once('value');
 
-    ctx.body = results.val();
+    const api = await fetch('https://baconipsum.com/api/?type=meat-and-filler');
+    const list = await api.json();
+
+    ctx.body = results.val() + list[0];
 });
 
 // router.post('/posts', crearPost);
