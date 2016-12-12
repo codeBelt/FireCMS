@@ -2,6 +2,9 @@
   "atom": {
     "rewriteTsconfig": false
   },
+  "compilerOptions": {
+    "moduleResolution": "node"
+  },
   "compileOnSave": false,
   "filesGlob": [
   ],

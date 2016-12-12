@@ -3,10 +3,12 @@ import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 import * as firebase from 'firebase';
 import * as fetch from 'node-fetch';
+import * as fs from 'fs-promise';
 
 // https://firebase.googleblog.com/2016/01/keeping-our-promises-and-callbacks_76.html
 // https://www.smashingmagazine.com/2016/08/getting-started-koa-2-async-functions/
 // http://blog.stevensanderson.com/2013/12/21/experiments-with-koa-and-javascript-generators/
+// console.log(`fs`, fs);
 
 const router = new Router();
 const app = new Koa();
@@ -18,6 +20,7 @@ firebase.initializeApp({
     databaseURL: 'https://firecms-e950e.firebaseio.com'
 });
 
+
 router.get('/', async (ctx, next) => {
     const firebaseRef = firebase.database().ref();
     const data = firebaseRef.child('cms/single/0/title');
@@ -26,6 +29,9 @@ router.get('/', async (ctx, next) => {
     const api = await fetch('https://baconipsum.com/api/?type=meat-and-filler');
     const list = await api.json();
 
+    await fs.writeFile('filename.js', 'Hello');
+    const asdf = await fs.readFile('filename.js', 'utf8');
+console.log(`asdf`, asdf);
     ctx.body = results.val() + list[0];
 });
 

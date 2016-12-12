@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "firebase": "3.6.3",
+    "fs-promise": "^1.0.0",
     "kcors": "^2.2.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
