@@ -3,6 +3,7 @@
     "rewriteTsconfig": false
   },
   "compilerOptions": {
+    "target": "es6",
     "moduleResolution": "node"
   },
   "compileOnSave": false,

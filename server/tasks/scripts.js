@@ -33,7 +33,7 @@ function buildScripts() {
 
     const bundler = browserify(options)
         .external(vendorArray)
-        .plugin('tsify', { target: 'es6' })
+        .plugin('tsify')
         .transform('babelify', { extensions: ['.js', '.ts'] });
 
     bundler.on('update', () => {
