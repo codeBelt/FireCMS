@@ -16,13 +16,16 @@
     "postinstall": "node tools/npm-postinstall"
   },
   "dependencies": {
+    "del": "^2.2.1",
     "firebase": "3.6.3",
     "fs-promise": "^1.0.0",
+    "globby": "^6.1.0",
     "kcors": "^2.2.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
     "koa-router": "^7.0.1",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.6.3",
+    "nunjucks": "^3.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.8.0",
