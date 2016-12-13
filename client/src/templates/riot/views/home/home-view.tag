@@ -11,6 +11,8 @@
         // METHODS
         //--------------------------------------------------------------------------------
         this.refresh = () => {
+            // Get TypeScript working.
+            let num:number = 0;
 
             this.update();
         };

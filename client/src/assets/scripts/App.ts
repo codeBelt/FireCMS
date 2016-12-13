@@ -1,3 +1,5 @@
+import * as riot from 'riot'
+import '../../templates/riot/index';
 import * as firebase from 'firebase';
 
 /**
@@ -32,6 +34,8 @@ class App {
         //         }
         //     }
         // })
+
+        this._setRoutes();
     }
 
     /**
@@ -41,6 +45,25 @@ class App {
      */
     public test(event:any):void {
         console.log(`hey`);
+    }
+
+    /**
+     * @method _setRoutes
+     * @private
+     */
+    _setRoutes() {
+        // Routes for the Application.
+        const routes = [
+            { route:'/', tag:'layout-default', routes: [
+                { route:'/', tag:'home-view' },
+            ]},
+        ];
+
+        // Start riot and router.
+        riot.mount('*', {
+            routes,
+            options: {},
+        });
     }
 
 }

@@ -18,13 +18,14 @@
   "dependencies": {
     "babel-polyfill": "6.9.1",
     "firebase": "3.6.3",
+    "page": "1.7.1",
     "riot": "3.0.2",
     "structure-js": "0.14.6",
     "whatwg-fetch": "2.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.8.0",
-    "babel-plugin-transform-class-properties": "6.10.2",
+    "babel-plugin-transform-class-properties": "6.19.0",
     "babel-plugin-transform-runtime": "6.9.0",
     "babel-preset-es2015": "6.9.0",
     "babel-preset-es2015-riot": "1.1.0",
@@ -50,6 +51,8 @@
     "handlebars": "4.0.5",
     "handlebars-helpers": "0.7.3",
     "handlebars-layouts": "3.1.3",
+    "install": "^0.8.2",
+    "npm": "^4.0.3",
     "postcss-apply": "0.2.0",
     "postcss-cssnext": "2.5.2",
     "postcss-discard-comments": "2.0.4",
@@ -58,6 +61,7 @@
     "run-sequence": "1.2.2",
     "tsify": "2.0.3",
     "typescript": "2.1.4",
+    "typescript-simple": "^7.0.0",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
     "watchify": "3.7.0"
@@ -82,7 +86,14 @@
     "plugins": [
       "transform-class-properties",
       "transform-async-to-generator",
-      "transform-runtime"
+      "transform-class-properties",
+      "transform-runtime",
+      [
+        "transform-es2015-modules-commonjs",
+        {
+          "allowTopLevelThis": true
+        }
+      ]
     ]
   }
 }

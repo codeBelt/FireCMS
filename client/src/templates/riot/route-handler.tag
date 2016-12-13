@@ -4,8 +4,8 @@
     <script>
         // Based on https://github.com/crisward/riot-routehandler/
         import page from 'page';
-        import riot from 'riot';
-        import RouteAction from 'actions/RouteAction';
+        import * as riot from 'riot';
+        import RouteAction from '../../assets/scripts/actions/RouteAction';
 
         this.on('mount', () => {
             this.tagStack = [];
@@ -138,7 +138,7 @@
         // Called after we're completely done with the route change
         this.onRouteComplete = (route, ctx) => {
             RouteAction.meta({ title: route.title });
-            RouteAction._current(ctx.path, ctx.params, ctx.querystring, ctx.hash);    
+            RouteAction._current(ctx.path, ctx.params, ctx.querystring, ctx.hash);
         };
 
         // returns the inner content element
