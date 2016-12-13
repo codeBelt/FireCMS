@@ -3,14 +3,18 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "sourceMap": false,
+    "declaration": false,
     "noImplicitAny": false,
+    "rootDir": ".",
+    "outDir": "public",
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "removeComments": true,
+    "jsx": "react",
     "allowJs": true
   },
   "include": [
     "src/**/*",
-    "typings/index.d.ts",
-    "__tests__/**/*"
+    "typings/index.d.ts"
   ]
 }

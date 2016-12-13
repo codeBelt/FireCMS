@@ -1,85 +1,84 @@
-# CodeBelt.FireCMS
+[![Dev dependencies][dependencies-badge]][dependencies]
+[![Node.js version][nodejs-badge]][nodejs]
+[![NPM version][npm-badge]][npm]
+[![Build Status][travis-badge]][travis-ci]
 
-This document describes the Front-end build process.
+[![MIT License][license-badge]][LICENSE]
+[![PRs Welcome][prs-badge]][prs]
+[![Donate][donate-badge]][donate]
 
-The following tools are used:
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
 
- * Build - Node 6.5.0, Gulp
- * Packages - Npm, Bower
- * Docs - YuiDocs
- * JavaScript - Browserify, Babelify, Uglify, ESLint
- * Stylesheets - PostCSS, CSSNext, CSSClean
- * HTML - Handlebars
- * Images - ImageMin
+# node-typescript-boilerplate
 
-## Prereqs
+Minimalistic boilerplate to jump-start a [Node.js][nodejs] project in [TypeScript][typescript] 2.0.
 
-Install the required version of Node.js:
+Provides a basic template, batteries included:
 
-    Mac/Linux: $ chmod 770 node-install.sh & ./node-install.sh -i
-    Windows: $ node-install.cmd --i
++ [TypeScript][typescript] to ES6 transpilation,
++ [TSLint][tslint] with a general recommendation for a good default configuration, 
++ [Jest][jest] unit testing and coverage,
++ Type definitions for Node.js and Jest,
++ [NPM scripts for common operations](#available-scripts),
++ .editorconfig for consistent file format.
 
-## Development Build
+## Quick start
 
-Builds source code from /src into /web. Starts a watch on files in /src.
+This project requires [Node.js][nodejs] 6.2+ and [NPM][npm]. Make sure you have those installed. Then just type following commands:
 
-    $ npm install
-    $ npm run dev
+```
+git clone https://github.com/jsynowiec/node-typescript-boilerplate
+cd node-typescript-boilerplate
+npm install
+```
 
-## Production Build
+### Unit tests in JavaScript
 
-Minifies all code. Skips installing optionalDependencies in package.json.
+Writing unit tests in TypeScript can sometimes be troublesome and confusing. Especially when mocking dependencies and using spies.
 
-    $ npm install --no-optional
-    $ npm run prod
+This is **optional**, but if you want to learn how to write JavaScript tests for TypeScript modules, read the [corresponding wiki page][wiki-js-tests].
 
-## Local Server
+## Available scripts
 
-Starts a BrowserSync development server @ http://localhost:3000
++ `clean` - remove coverage data, Jest cache and transpiled files,
++ `build` - transpile TypeScript to ES6,
++ `watch` - interactive watch mode to automatically transpile source files, 
++ `lint` - lint source files and tests,
++ `test` - run tests,
++ `test:watch` - interactive watch mode to automatically re-run tests
 
-    $ npm run serve
+## Alternative
 
-## Image Optimization
+As an alternative to TypeScript, you can try my [Node.js Flow boilerplate][flow-boilerplate]. It's basically the same but with ES6, async/await, Flow type checking and ESLint.
 
-Optimize GIF/PNG/JPG/SVG images. Images are losslessly compressed, and will replace the original versions.
+## License
+MIT License. See the [LICENSE](https://github.com/jsynowiec/node-typescript-boilerplate/blob/master/LICENSE) file.
 
-    $ npm run optimize
+[dependencies-badge]: https://david-dm.org/jsynowiec/node-typescript-boilerplate/dev-status.svg
+[dependencies]: https://david-dm.org/jsynowiec/node-typescript-boilerplate?type=dev
+[nodejs-badge]: https://img.shields.io/badge/node->=%206.2.0-blue.svg
+[nodejs]: https://nodejs.org/dist/latest-v6.x/docs/api/
+[npm-badge]: https://img.shields.io/badge/npm->=%203.8.9-blue.svg
+[npm]: https://docs.npmjs.com/
+[travis-badge]: https://travis-ci.org/jsynowiec/node-typescript-boilerplate.svg?branch=master
+[travis-ci]: https://travis-ci.org/jsynowiec/node-typescript-boilerplate
+[typescript]: https://www.typescriptlang.org/
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license]: https://github.com/jsynowiec/node-typescript-boilerplate/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+[prs]: http://makeapullrequest.com
+[donate-badge]: https://img.shields.io/badge/$-support-green.svg
+[donate]: http://bit.ly/donate-js
+[github-watch-badge]: https://img.shields.io/github/watchers/jsynowiec/node-typescript-boilerplate.svg?style=social
+[github-watch]: https://github.com/jsynowiec/node-typescript-boilerplate/watchers
+[github-star-badge]: https://img.shields.io/github/stars/jsynowiec/node-typescript-boilerplate.svg?style=social
+[github-star]: https://github.com/jsynowiec/node-typescript-boilerplate/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20this%20Node.js%20TypeScript%20boilerplate!%20https://github.com/jsynowiec/node-typescript-boilerplate%20%F0%9F%91%8D
+[twitter-badge]: https://img.shields.io/twitter/url/https/jsynowiec/node-typescript-boilerplate.svg?style=social
+[jest]: https://facebook.github.io/jest/
+[tslint]: https://palantir.github.io/tslint/
 
-## Documentation
-
-Generates documentation based on JavaScript docblocks, writes to /docs.
-
-    $ npm run docs
-
-## Linting
-
-Lints all JavaScript files for syntax issues.
-
-    $ npm run lint
-
-## Build Configuration
-
-Vary build options based on the target environment:
-
- * env/default.env - base configuration.
- * env/development.env - overrides for dev environment
- * env/local.env - overrides for local environment. This is for your personal use only, do not commit this file.
-
-## JavaScipt Bundles
-
-Two separate bundles are created for JavaScript:
-
- * main.js - built from our own code in /src/assets/scripts
- * vendor.js - built from third-party libs in /src/assets/vendor
-
-## Third-Party Libraries
-
-Use npm whenever possible to install third party libraries. Add a new entry in package.json, under "dependencies"
-
-If a library you want to use is NOT hosted in npm, do the following:
-
- 1. Add an entry to the file bower.json
- 1. Run `bower install` to download the library to /assets/vendor
- 1. Add an alias for the library in package.json under "browser"
- 1. If the library is not CommonJS-compatible, add an entry to "browserify-shim"
- 1. Please commit all libraries in /assets/vendor to source control
+[flow-boilerplate]: https://github.com/jsynowiec/node-flowtype-boilerplate
+[wiki-js-tests]: https://github.com/jsynowiec/node-typescript-boilerplate/wiki/Unit-tests-in-plain-JavaScript

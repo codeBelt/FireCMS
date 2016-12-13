@@ -1,21 +1,21 @@
 {
   "name": "codebelt-firecms",
   "version": "1.0.0",
-  "description": "",
+  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "developedBy": "codeBelt",
   "private": true,
-  "main": false,
-  "scripts": {
-    "prod": "cross-env NODE_ENV=production gulp",
-    "stage": "cross-env NODE_ENV=staging gulp",
-    "dev": "cross-env NODE_ENV=development gulp",
-    "serve": "cross-env NODE_ENV=development gulp serve",
-    "docs": "cross-env NODE_ENV=development gulp docs",
-    "lint": "cross-env NODE_ENV=development gulp lint",
-    "optimize": "cross-env NODE_ENV=development gulp optimize",
-    "postinstall": "node tools/npm-postinstall"
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 6.2.0"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@types/jest": "~16.0.1",
+    "@types/node": "~6.0.51",
+    "jest": "~17.0.3",
+    "rimraf": "~2.5.4",
+    "tslint": "~3.15.1",
+    "tslint-microsoft-contrib": "~2.0.13",
+    "typescript": "~2.0.10",
     "del": "^2.2.1",
     "firebase": "3.6.3",
     "fs-promise": "^1.0.0",
@@ -27,65 +27,42 @@
     "node-fetch": "^1.6.3",
     "nunjucks": "^3.0.0"
   },
-  "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "6.8.0",
-    "babel-plugin-transform-class-properties": "6.10.2",
-    "babel-plugin-transform-runtime": "6.9.0",
-    "babel-preset-es2015": "6.9.0",
-    "babel-register": "6.14.0",
-    "babelify": "7.3.0",
-    "browser-sync": "2.13.0",
-    "browserify": "13.0.1",
-    "browserify-shim": "3.8.12",
-    "cross-env": "2.0.0",
-    "del": "2.2.1",
-    "env-merger": "1.0.0",
-    "gulp": "3.9.1",
-    "gulp-clean-css": "2.0.11",
-    "gulp-hb": "5.1.0",
-    "gulp-if": "2.0.1",
-    "gulp-plumber": "1.1.0",
-    "gulp-postcss": "6.1.0",
-    "gulp-prettify": "0.4.0",
-    "gulp-rename": "1.2.2",
-    "gulp-replace": "0.5.4",
-    "gulp-sourcemaps": "1.6.0",
-    "gulp-uglify": "1.5.4",
-    "handlebars": "4.0.5",
-    "handlebars-helpers": "0.7.3",
-    "handlebars-layouts": "3.1.3",
-    "postcss-apply": "0.2.0",
-    "postcss-cssnext": "2.5.2",
-    "postcss-discard-comments": "2.0.4",
-    "postcss-import": "8.1.0",
-    "run-sequence": "1.2.2",
-    "tsify": "2.0.3",
-    "typescript": "2.1.4",
-    "vinyl-buffer": "1.0.0",
-    "vinyl-source-stream": "1.1.0",
-    "watchify": "3.7.0"
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.release.json",
+    "watch": "tsc -w -p tsconfig.release.json",
+    "lint": "tslint -t stylish '{src,__tests__}/**/*.{ts,tsx}'",
+    "pretest": "npm run lint",
+    "test": "npm run test-only",
+    "test-only": "jest --coverage",
+    "test:watch": "jest --watch"
   },
-  "optionalDependencies": {
-    "babel-eslint": "6.1.0",
-    "eslint": "2.13.1",
-    "gulp-eslint": "3.0.1",
-    "gulp-imagemin": "3.0.1",
-    "gulp-yuidoc": "0.1.2",
-    "imagemin-pngquant": "5.0.0"
+  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsynowiec/node-typescript-boilerplate.git"
   },
-  "browser": {},
-  "browserify-shim": {},
-  "engines": {
-    "node": ">=7.2.0"
+  "bugs": {
+    "url": "https://github.com/jsynowiec/node-typescript-boilerplate/issues"
   },
-  "babel": {
-    "presets": [
-      "es2015"
+  "homepage": "https://github.com/jsynowiec/node-typescript-boilerplate#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
     ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-async-to-generator",
-      "transform-runtime"
+    "testRegex": "<rootDir>(__tests__/).*\\.(test|spec)\\.(ts|js)$",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/**/*.d.ts"
     ]
   }
 }

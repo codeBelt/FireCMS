@@ -1,10 +1,20 @@
-docs/
-node/
-../node_modules/
-public/
-.idea/
+# Logs
+logs
+*.log
+npm-debug.log*
 
+# Dependencies
+node_modules/
+
+# Coverage
+coverage
+
+# Transpiled files
+public/
+
+# VS Code
+.vscode
+!.vscode/tasks.js
+
+# Misc
 .DS_Store
-._.DS_Store
-env/local.env
-npm-debug.log
