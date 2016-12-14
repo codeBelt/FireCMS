@@ -1,0 +1,136 @@
+{# ------------------------------------------------------- #}
+{# INDIVIDUAL VIEW FOR EACH teste #}
+{# This page can use any data from http:localhost:2000/cms/#/form/teste/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this teste's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block content %}
+  <p><a href="{{ url('teste') }}">View a list of all teste</a></p>
+  <h1>{{ item.name }}</h1>
+  <ul>
+      <li>
+        <strong>Name: </strong>
+        {{ item.name }}
+      </li>
+      <li>
+        <strong>Create Date: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ item.create_date|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Last Updated: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ item.last_updated|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Publish Date: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ item.publish_date|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Paragraph text: </strong>
+        {{ item.paragraph_text }}
+      </li>
+      <li>
+        <strong>Audio file: </strong>
+        {# HTML5 audio player for your listening pleasure. #}
+        <audio src="{{ item.audio_file.url }}" controls></audio>
+      </li>
+      <li>
+        <strong>Audio file 1: </strong>
+        {# HTML5 audio player for your listening pleasure. #}
+        <audio src="{{ item.audio_file_1.url }}" controls></audio>
+      </li>
+      <li>
+        <strong>Tabular Data: </strong>
+        {# Output tablular data. Note that it's up to you to output the thead manually. This just output the data. #}
+        <table>
+          <tbody>
+            {% for key, row in item.tabular_data %}
+              <tr>
+                {% for key, cell in row %}
+                  <td>
+                    {{ cell }}
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <strong>Email: </strong>
+        {{ item.email }}
+      </li>
+      <li>
+        <strong>Email 1: </strong>
+        {{ item.email_1 }}
+      </li>
+      <li>
+        <strong>Geolocation: </strong>
+        {% if item.geolocation %}
+        <ul>
+          <li>Latitude: {{ item.geolocation.latitude }}</li>
+          <li>Longitude: {{ item.geolocation.longitude }}</li>
+          <li>
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ item.geolocation.latitude }},{{ item.geolocation.longitude }}&zoom=8&size=400x400&markers=color:red%7C{{ item.geolocation.latitude }},{{ item.geolocation.longitude }}" />
+          </li>
+        </ul>
+        {% endif %}
+      </li>
+      <li>
+        <strong>Rating: </strong>
+        {{ item.rating }}
+      </li>
+      <li>
+        <strong>Embed.ly: </strong>
+        {# Embed.ly content usually comes with more data. Info here: #}
+{# http://www.webhook.com/docs/widget-template-reference/#embedly #}{{ item.embedly.html|safe  }}      </li>
+      <li>
+        <strong>Date time: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ item.date_time|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Gallery: </strong>
+        {# You can pull out a lot more information from the gallery property. Info here: #}
+        {# http://www.webhook.com/docs/widget-template-reference/#image #}
+        <ul>
+          {% for image in item.gallery %}
+            <li>
+              {# You can get the raw image url by accessing image.url #}
+              <img src="{{ image|imageSize(200, 200) }}">
+              <div>{{ image.caption }}</div>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <strong>Checkbox: </strong>
+        {# List the checkboxes available. Output their values. #}
+        <ul>
+          {% for option in item.checkbox %}
+            {# Output the values for every option. Alternatively, wrap this in an if statement to only show True values. #}
+            <li>
+              {{ option.label }}: {{ option.value }}
+            </li>
+          {% endfor%}
+        </ul>
+      </li>
+      <li>
+        <strong>Switch: </strong>
+        {{ item.switch }}
+      </li>
+      <li>
+        <strong>Markdown text: </strong>
+        {{ item.markdown_text|markdown }}
+      </li>
+  </ul>
+{% endblock %}

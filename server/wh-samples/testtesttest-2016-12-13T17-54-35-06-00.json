@@ -1,0 +1,595 @@
+﻿{
+  "contentType": {
+    "blog": {
+      "controls": [
+        {
+          "controlType": "textfield",
+          "hidden": false,
+          "label": "Name",
+          "locked": true,
+          "name": "name",
+          "required": true,
+          "showInCms": true
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Create Date",
+          "locked": true,
+          "name": "create_date",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Last Updated",
+          "locked": true,
+          "name": "last_updated",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Publish Date",
+          "locked": true,
+          "name": "publish_date",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "markdown",
+          "hidden": false,
+          "label": "Markdown text",
+          "locked": false,
+          "name": "markdown_text",
+          "required": false,
+          "showInCms": true
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Preview URL",
+          "locked": true,
+          "name": "preview_url",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Slug",
+          "locked": true,
+          "name": "slug",
+          "required": false,
+          "showInCms": false
+        }
+      ],
+      "individualMD5": "85c245a9d23e89020ecfd6d462060448",
+      "listMD5": "11f747e368970a02e4ffbaa43251ed69",
+      "name": "blog",
+      "oneOff": false
+    },
+    "contact": {
+      "controls": [
+        {
+          "controlType": "textfield",
+          "hidden": false,
+          "label": "Name",
+          "locked": true,
+          "name": "name",
+          "required": true,
+          "showInCms": true
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Create Date",
+          "locked": true,
+          "name": "create_date",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Last Updated",
+          "locked": true,
+          "name": "last_updated",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Preview URL",
+          "locked": true,
+          "name": "preview_url",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Slug",
+          "locked": true,
+          "name": "slug",
+          "required": false,
+          "showInCms": false
+        }
+      ],
+      "name": "contact",
+      "oneOff": true,
+      "oneOffMD5": "12e7479b29dac51f17f137c1e803b72e"
+    },
+    "homepage": {
+      "controls": [
+        {
+          "controlType": "textfield",
+          "hidden": false,
+          "label": "Name",
+          "locked": true,
+          "name": "name",
+          "required": true,
+          "showInCms": true
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Create Date",
+          "locked": true,
+          "name": "create_date",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Last Updated",
+          "locked": true,
+          "name": "last_updated",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "number",
+          "hidden": false,
+          "label": "Number",
+          "locked": false,
+          "name": "number",
+          "required": false,
+          "showInCms": true
+        },
+        {
+          "controlType": "wysiwyg",
+          "hidden": false,
+          "label": "WYSIWYG text",
+          "locked": false,
+          "meta": {
+            "image": true,
+            "javascript": true,
+            "link": true,
+            "quote": true,
+            "table": true,
+            "video": true
+          },
+          "name": "wysiwyg_text",
+          "required": false,
+          "showInCms": true
+        },
+        {
+          "controlType": "name",
+          "hidden": false,
+          "label": "Person",
+          "locked": false,
+          "name": "person",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "address",
+          "hidden": false,
+          "label": "Address",
+          "locked": false,
+          "name": "address",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "tabular",
+          "hidden": false,
+          "label": "Tabular Data",
+          "locked": false,
+          "meta": {
+            "options": [
+              {
+                "value": "Column 1"
+              },
+              {
+                "value": "Column 2"
+              },
+              {
+                "value": "asdf"
+              },
+              {
+                "value": "d"
+              },
+              {
+                "value": "d"
+              }
+            ]
+          },
+          "name": "tabular_data",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "tabular",
+          "hidden": false,
+          "label": "Tabular Data 1",
+          "locked": false,
+          "meta": {
+            "options": [
+              {
+                "value": "Column 1"
+              },
+              {
+                "value": "Column 2"
+              }
+            ]
+          },
+          "name": "tabular_data_1",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Preview URL",
+          "locked": true,
+          "name": "preview_url",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Slug",
+          "locked": true,
+          "name": "slug",
+          "required": false,
+          "showInCms": false
+        }
+      ],
+      "name": "homepage",
+      "oneOff": true,
+      "oneOffMD5": "66bf1cc4b8e0cd26433d3b1892c345ec"
+    },
+    "product": {
+      "controls": [
+        {
+          "controlType": "textfield",
+          "hidden": false,
+          "label": "Name",
+          "locked": true,
+          "name": "name",
+          "required": true,
+          "showInCms": true
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Create Date",
+          "locked": true,
+          "name": "create_date",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Last Updated",
+          "locked": true,
+          "name": "last_updated",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "datetime",
+          "hidden": true,
+          "label": "Publish Date",
+          "locked": true,
+          "name": "publish_date",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "select",
+          "hidden": false,
+          "label": "Dropdown",
+          "locked": false,
+          "meta": {
+            "defaultValue": "",
+            "options": [
+              {
+                "value": ""
+              },
+              {
+                "value": "Option 1"
+              }
+            ]
+          },
+          "name": "dropdown",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "radio",
+          "hidden": false,
+          "label": "Multiple choice",
+          "locked": false,
+          "meta": {
+            "options": [
+              {
+                "value": "Option 1"
+              },
+              {
+                "value": "Option 2"
+              }
+            ]
+          },
+          "name": "multiple_choice",
+          "required": false,
+          "showInCms": true
+        },
+        {
+          "controlType": "radio",
+          "hidden": false,
+          "label": "Multiple choice 1",
+          "locked": false,
+          "meta": {
+            "options": [
+              {
+                "value": "Option 1"
+              },
+              {
+                "value": "Option 2"
+              }
+            ]
+          },
+          "name": "multiple_choice_1",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Preview URL",
+          "locked": true,
+          "name": "preview_url",
+          "required": true,
+          "showInCms": false
+        },
+        {
+          "controlType": "textfield",
+          "hidden": true,
+          "label": "Slug",
+          "locked": true,
+          "name": "slug",
+          "required": false,
+          "showInCms": true
+        },
+        {
+          "controlType": "number",
+          "hidden": false,
+          "label": "Number",
+          "locked": false,
+          "name": "number",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "number",
+          "hidden": false,
+          "label": "Number 1",
+          "locked": false,
+          "name": "number_1",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "url",
+          "hidden": false,
+          "label": "Website",
+          "locked": false,
+          "name": "website",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "instruction",
+          "hidden": false,
+          "label": "Instructions",
+          "locked": false,
+          "name": "instructions",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "layout",
+          "hidden": false,
+          "label": "Page Layout",
+          "locked": false,
+          "meta": {
+            "defaultValue": "",
+            "options": [
+              {
+                "label": "None",
+                "value": ""
+              },
+              {
+                "label": "Layout",
+                "value": "layout.html"
+              }
+            ]
+          },
+          "name": "page_layout",
+          "required": false,
+          "showInCms": false
+        },
+        {
+          "controlType": "relation",
+          "hidden": false,
+          "label": "Relationship",
+          "locked": false,
+          "meta": {
+            "contentTypeId": "product",
+            "reverseName": "relationship"
+          },
+          "name": "relationship",
+          "required": false,
+          "showInCms": true
+        }
+      ],
+      "individualMD5": "ed9f7ba9a888c1a7b565112cd13c82b8",
+      "listMD5": "641b06cf01d246b61f124c6c4db72221",
+      "name": "product",
+      "oneOff": false
+    }
+  },
+  "data": {
+    "blog": {
+      "-KYuaXI8k-knG5-bN4UH": {
+        "_sort_create_date": 1481673120,
+        "_sort_last_updated": 1481673120,
+        "_sort_publish_date": 1483228320,
+        "create_date": "2016-12-13T17:52:00-06:00",
+        "last_updated": "2016-12-13T17:52:00-06:00",
+        "markdown_text": "*This text will be italic*\n_This will also be italic_\n\n**This text will be bold**\n__This will also be bold__\n\n_You **can** combine them_'\n\n",
+        "name": "New Blog",
+        "preview_url": "69c9ede7-ed0a-4454-17bd-39270816d28f",
+        "publish_date": "2016-12-31T17:52:00-06:00"
+      },
+      "-KYuan55pXxT9lQcYej8": {
+        "_sort_create_date": 1481673180,
+        "_sort_last_updated": 1481673180,
+        "create_date": "2016-12-13T17:53:00-06:00",
+        "isDraft": true,
+        "last_updated": "2016-12-13T17:53:00-06:00",
+        "markdown_text": "- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported\n- [x] list syntax required (any unordered or ordered list supported)\n- [x] this is a complete item\n- [ ] this is an incomplete item",
+        "name": "Saved as Draft",
+        "preview_url": "64567e5e-7a2e-ed3d-02ef-c42088eaf45a",
+        "slug": "blog/custom"
+      }
+    },
+    "homepage": {
+      "_sort_create_date": 1481671680,
+      "_sort_last_updated": 1481672820,
+      "address": {
+        "city": "In fugiat consequat Ratione ducimus ea dicta doloremque exercitationem est quidem dolorem animi",
+        "country": "Quidem ea debitis atque qui consequatur quod quam culpa possimus reiciendis non Nam iste rerum tempore quia",
+        "state": "Commodi est ut eiusmod voluptatem sunt fuga Voluptate facere dolore vel itaque in sunt dolore ad",
+        "street1": "Ratione dolore tempore quisquam rerum qui officia est non nisi deleniti doloremque reprehenderit blanditiis ut libero",
+        "street2": "Ipsum voluptates explicabo Sint voluptatem Dolor quam id sunt ut quia aut",
+        "zip": "Sunt eos quae autem quasi earum nisi eos facere anim qui impedit dolor illo qui odio ad dolorem reiciendis commodo"
+      },
+      "create_date": "2016-12-13T17:28:00-06:00",
+      "last_updated": "2016-12-13T17:47:00-06:00",
+      "name": "Home",
+      "number": 45,
+      "person": {
+        "first": "In lorem quo maxime tempor totam est numquam explicabo",
+        "last": "Voluptas sint qui voluptatem ullamco qui est"
+      },
+      "preview_url": "2c14b3c8-919d-8965-52ad-b13fe0ea3fff",
+      "tabular_data": [
+        [
+          "Incidunt veniam eum nisi non qui asperiores sed adipisci aut fugiat porro qui nisi quis quia quas",
+          "Consectetur et officiis nihil rem ipsum quibusdam exercitationem minima fugiat qui culpa incidunt at",
+          "Velit id assumenda officia enim in autem consequatur Eveniet fuga",
+          "Accusantium pariatur Quisquam ipsam consequat Vel in fugiat eveniet illum soluta similique eaque incidunt aut harum doloribus culpa",
+          "Inventore voluptatum vel adipisci obcaecati do qui omnis cillum fugit occaecat quaerat quis eius reiciendis dolorem"
+        ]
+      ],
+      "tabular_data_1": [
+        [
+          "Veniam in aut qui culpa ad possimus at voluptas laudantium et do et nulla dolorem natus alias eos",
+          "Perspiciatis impedit quaerat sit amet nihil iste ratione excepturi in laboriosam est vel et veniam est ex consectetur et aute"
+        ]
+      ],
+      "wysiwyg_text": "<p><br>\n</p><figure data-type=\"quote\">\n<blockquote>asdfasdf<strong>asdf asdf</strong> asd fa sdfas dfasdf asdf a sdf as df asd f\n\t\n</blockquote></figure>\n<p><br>\n</p>\n<p>d\n</p>"
+    },
+    "product": {
+      "-KYuWYWlHgNPbhgcwgJZ": {
+        "_sort_create_date": 1481671800,
+        "_sort_last_updated": 1481671800,
+        "_sort_publish_date": 1481671800,
+        "create_date": "2016-12-13T17:30:00-06:00",
+        "dropdown": "Option 1",
+        "last_updated": "2016-12-13T17:30:00-06:00",
+        "multiple_choice": "Option 2",
+        "multiple_choice_1": "Option 1",
+        "name": "Product 1",
+        "preview_url": "6a437191-9f9e-9e69-45ec-b53058f6dbef",
+        "publish_date": "2016-12-13T17:30:00-06:00"
+      },
+      "-KYuWgF83da6s-HL5ep3": {
+        "_sort_create_date": 1481671860,
+        "_sort_last_updated": 1481672820,
+        "_sort_publish_date": 1481671860,
+        "create_date": "2016-12-13T17:31:00-06:00",
+        "dropdown": "Option 1",
+        "isDraft": false,
+        "last_updated": "2016-12-13T17:47:00-06:00",
+        "multiple_choice": "Option 1",
+        "multiple_choice_1": "Option 1",
+        "name": "Product -2",
+        "number": 3,
+        "number_1": 3,
+        "page_layout": "layout.html",
+        "preview_url": "32d50b09-c073-fcde-c3aa-e3600339de1e",
+        "publish_date": "2016-12-13T17:31:00-06:00",
+        "relationship": [
+          "product -KYu_7gCNx2FyFAjiPY7",
+          "product -KYu_JXpJP_PwWVcuYcd"
+        ],
+        "slug": "new/slug",
+        "website": "http://www.cool.com"
+      },
+      "-KYu_7gCNx2FyFAjiPY7": {
+        "name": "ggggggg",
+        "relationship": [
+          "product -KYuWgF83da6s-HL5ep3"
+        ]
+      },
+      "-KYu_JXpJP_PwWVcuYcd": {
+        "name": "relationship",
+        "relationship": [
+          "product -KYuWgF83da6s-HL5ep3"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "general": {
+      "analytics_id": "asdf",
+      "site_description": "cool desciption",
+      "site_facebook": "asdf",
+      "site_keywords": "key words cool kids",
+      "site_name": "Cool site",
+      "site_twitter": "asdf",
+      "site_url": "asdf"
+    },
+    "redirect": {
+      "-KYuZgNuyrTziMoH8Tkb": {
+        "destination": "cool",
+        "pattern": "bool"
+      },
+      "-KYuZj8eI_OE7Z_aCJFB": {
+        "destination": "/homepage",
+        "pattern": "asdfasdf/asdf/a/sdf/asd/f/asdf/as/df"
+      }
+    }
+  }
+}
