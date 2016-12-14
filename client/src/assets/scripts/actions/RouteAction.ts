@@ -1,7 +1,7 @@
 // import EventBroker from 'structure-js/js/event/EventBroker';
 // import RouteModel from 'models/RouteModel';
 // import RouteService from 'services/RouteService';
-import page from 'page';
+import * as page from 'page';
 
 /**
  * Sets current route

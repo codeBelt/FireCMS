@@ -12,7 +12,7 @@
         //--------------------------------------------------------------------------------
         this.refresh = () => {
             // Get TypeScript working.
-            let num:number = 0;
+            let num = 0;
 
             this.update();
         };

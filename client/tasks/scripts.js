@@ -28,14 +28,14 @@ function buildScripts() {
         extensions: ['.js', '.ts'],
         debug: process.env.SOURCE_MAPS === 'true',
         entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.ts`],
-        // paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
+        paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
         node: true,
     };
 
     const bundler = browserify(options)
         .external(vendorArray)
         .plugin('tsify', { target: 'es6' })
-        .transform('riotify', { type: 'typescript' })
+        .transform('riotify', { type: 'es6' })
         .transform('babelify', { extensions: ['.js', '.ts'] });
 
     bundler.on('update', () => {
