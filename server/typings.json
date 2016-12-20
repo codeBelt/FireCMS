@@ -1,8 +1,6 @@
 {
   "name": "codebelt-firecms",
-  "dependencies": {},
-  "globalDependencies": {
-    "cookie": "registry:dt/cookie#0.1.2+20160316155526",
+  "dependencies": {
     "cookies": "registry:dt/cookies#0.5.1+20160316171810",
     "del": "registry:dt/del#2.2.0+20160317120654",
     "glob": "registry:dt/glob#5.0.10+20160317120654",
@@ -12,5 +10,6 @@
     "minimatch": "registry:dt/minimatch#2.0.8+20160317120654",
     "node-fetch": "registry:dt/node-fetch#0.0.0+20160711094047",
     "nunjucks": "registry:dt/nunjucks#0.0.0+20160802155009"
-  }
+  },
+  "globalDependencies": {}
 }

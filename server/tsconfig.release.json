@@ -6,12 +6,12 @@
     "sourceMap": false,
     "declaration": false,
     "noImplicitAny": false,
-    "rootDir": ".",
+//    "rootDir": ".",
     "outDir": "public",
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
     "jsx": "react",
-    "allowJs": true
+    "allowJs": false
   },
   "include": [
     "src/**/*",

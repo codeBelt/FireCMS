@@ -50,7 +50,6 @@ router.get('/', async (ctx, next) => {
 
   const files = await glob(["templates/**/*.html"], { cwd: __dirname });
   const template = await fsp.readFile(files[1], 'utf-8');
-
   //var template = nunjucks.compile(content);
   //const rendered = template.render(htmlData);
 
@@ -73,29 +72,6 @@ router.get('/', async (ctx, next) => {
 //     let posts = await query.toArray();
 //
 //     ctx.body = posts;
-// } catch (e) {
-//     ctx.status = 500;
-//     ctx.body = {
-//         status: ctx.status,
-//         error: e.message
-//     }
-// }
-// }
-
-// async function crearPost(ctx) {
-// try {
-//     let { titulo, texto } = ctx.request.body;
-//     let con = await rethinkdb.connect(config);
-//
-//     let post = await rethinkdb.db('blog').table('posts').insert({
-//         titulo: titulo,
-//         fecha: rethinkdb.now(),
-//         texto: texto
-//     }).run(con);
-//
-//     ctx.body = {
-//         post_id: post.generated_keys[0]
-//     }
 // } catch (e) {
 //     ctx.status = 500;
 //     ctx.body = {
