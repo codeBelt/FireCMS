@@ -18,8 +18,9 @@
   "dependencies": {
     "babel-polyfill": "6.9.1",
     "firebase": "3.6.3",
+    "form2js": "1.0.0",
     "page": "1.7.1",
-    "riot": "3.0.2",
+    "riot": "3.0.5",
     "structure-js": "0.14.6",
     "whatwg-fetch": "2.0.1"
   },

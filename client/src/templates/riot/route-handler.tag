@@ -1,5 +1,6 @@
 <route-handler>
-    <div data-is="{tagname}"></div>
+    <!-- element to hold the tag using <div data-is="{tagname}"> -->
+    <div></div>
 
     <script>
         // Based on https://github.com/crisward/riot-routehandler/
@@ -10,14 +11,14 @@
         this.on('mount', () => {
             this.tagStack = [];
 
-            this.onMount(opts.routes, opts.options);
+            this.onMount(this.opts.routes, this.opts.options);
         });
 
         this.onMount = (routes, options) => {
-            if (routes != null) {
+            if (routes) {
                 this.findRoute(null, routes);
 
-                if (options != null && options.base != null) {
+                if (options && options.base) {
                     page.base(options.base);
                     delete options.base;
                 }
@@ -32,11 +33,11 @@
                 const mainroute = (parentpath + route.route).replace(/\/\//g, '/');
                 let subparents = null;
 
-                if (route.use != null && typeof route.use === 'function') {
+                if (route.use && typeof route.use === 'function') {
                     this.setRouteUse(route, mainroute);
                 }
 
-                if (route.tag != null) {
+                if (route.tag) {
                     subparents = parents ? parents.slice() : [];
                     subparents.push(route);
                     this.setRouteTag(route, mainroute, subparents);
@@ -50,7 +51,7 @@
 
         this.makePath = parts => {
             let path = '';
-            if (parts != null) {
+            if (parts) {
                 path = parts
                     .map(p => p.route)
                     .join('')
@@ -76,7 +77,7 @@
             page(mainroute, (ctx, next) => {
                 this.unmountTags(subparents, ctx);
 
-                if (route.routes != null) {
+                if (route.routes) {
                     const len = route.routes.filter(r => r.route === '/').length;
                     if (len > 0) {
                         next();
@@ -84,14 +85,16 @@
                 }
 
                 // Call after we're completely done with the route change
-                this.onRouteComplete(route, ctx);
+                setTimeout(() => {
+                    this.onRouteComplete(route, ctx);
+                }, 0);
             });
         };
 
         this.unmountTags = (tree, ctx) => {
-            delete opts.routes;
-            opts.page = page;
-            opts.params = ctx.params;
+            delete this.opts.routes;
+            this.opts.page = page;
+            this.opts.params = ctx.params;
 
             let nexttag;
             let tag = this;
@@ -106,8 +109,8 @@
                     // Don't need to forcefully update tags here,
                     // We assume the sequence of action->store->tag will update the presentation layer
                     //riot.update();
-                } else if (tag != null && route != null && route.tag != null) { //don't mount middleware
-                    nexttag = tag.setTag(route.tag, opts);
+                } else if (tag && route && route.tag) { // don't mount middleware
+                    nexttag = tag.setTag(route.tag, this.opts);
                 }
 
                 this.tagStack[idx] = {
@@ -116,14 +119,14 @@
                     tag: tag,
                 };
 
-                if (nexttag != null) {
-                    if (nexttag[0] != null) {
+                if (nexttag) {
+                    if (nexttag[0]) {
                         tag = nexttag[0].tags['route-handler'];
                     }
                 }
 
-                if (tag == null) {
-                    if (nexttag[0] != null) {
+                if (!tag) {
+                    if (nexttag[0]) {
                         tag = nexttag[0].root.querySelector('route-handler')
                     }
                 }
@@ -137,28 +140,30 @@
 
         // Called after we're completely done with the route change
         this.onRouteComplete = (route, ctx) => {
-            RouteAction.meta({ title: route.title });
-            RouteAction._current(ctx.path, ctx.params, ctx.querystring, ctx.hash);
+            RouteAction.meta({
+                title: route.title
+            });
+
+            RouteAction.onRouteChange({
+                path: ctx.pathname,
+                queryString: this.getQueryString(ctx.path),
+                hash: ctx.hash,
+                routeParams: ctx.params,
+            });
         };
 
-        // returns the inner content element
-        // Eg: <div data-is="">
-        this.getContentElement = () => {
-            return this.root.childNodes[0];
-        };
-
-        // Riot does not automatically clear the
-        // properties for a tag after re-mounting it,
-        // so we do it manually here
-        this.clearContentElement = () => {
-            const node = this.getContentElement();
-            node.removeAttribute('class');
-            node.removeAttribute('style');
+        // Can't use ctx.queryString here since there is a bug in its decoding,
+        // so we extract it ourselves
+        this.getQueryString = (path) => {
+            let queryString = '';
+            const split = path.split('?');
+            if (split.length > 1) { queryString = split[1]; }
+            return queryString;
         };
 
         this.setTag = (tagname, routeopts) => {
-            this.clearContentElement();
-            this.update({ tagname });
+            const node = this.root.childNodes[0];
+            node.setAttribute('data-is', tagname)
             return riot.mount(tagname, routeopts);
         };
     </script>
