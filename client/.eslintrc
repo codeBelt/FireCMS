@@ -15,7 +15,8 @@
     "require": true,
     "define": true,
     "global": true,
-    "process": true
+    "process": true,
+    "es6": true
   },
   "parser": "babel-eslint",
   "rules": {
