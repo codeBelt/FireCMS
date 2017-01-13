@@ -27,7 +27,7 @@
         // METHODS
         //--------------------------------------------------------------------------------
         this.refresh = () => {
-            const type:number = 0;
+            const type = 0;
             this.update();
         };
 

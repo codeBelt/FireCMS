@@ -1,6 +1,7 @@
 import * as riot from 'riot'
 import '../../templates/riot/index';
 import * as firebase from 'firebase';
+import CheckoutViewModel from './models/CheckoutViewModel'
 
 /**
  * Initial application setup. Runs once upon every page load.
@@ -11,6 +12,9 @@ import * as firebase from 'firebase';
 class App {
 
     constructor() {
+
+        console.log(`CheckoutViewModel`, new CheckoutViewModel().pickHowOptions);
+
         firebase.initializeApp({
             apiKey: 'AIzaSyDqBfvsMGjfiTXNHeG7RmcOl-AcyHM2AZY',
             databaseURL: 'https://firecms-e950e.firebaseio.com'
