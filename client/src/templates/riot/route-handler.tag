@@ -5,8 +5,8 @@
     <script>
         // Based on https://github.com/crisward/riot-routehandler/
         import page from 'page';
-        import * as riot from 'riot';
-        import RouteAction from '../../assets/scripts/actions/RouteAction';
+        import riot from 'riot';
+        import RouteAction from 'actions/RouteAction';
 
         this.on('mount', () => {
             this.tagStack = [];

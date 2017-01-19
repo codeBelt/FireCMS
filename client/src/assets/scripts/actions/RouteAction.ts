@@ -1,4 +1,4 @@
-import EventBroker from 'structure-js/ts/event/EventBroker';
+import EventBroker from 'structure-js/js/event/EventBroker';
 // import RouteModel from 'models/RouteModel';
 // import RouteService from 'services/RouteService';
 import * as page from 'page';

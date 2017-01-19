@@ -1,4 +1,4 @@
-import BaseModel from 'structure-js/ts/model/BaseModel';
+import BaseModel from 'structure-js/js/model/BaseModel';
 import InputModel from './form/InputModel';
 
 /**

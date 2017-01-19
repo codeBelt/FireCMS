@@ -1,4 +1,4 @@
-import * as riot from 'riot'
+import riot from 'riot'
 import '../../templates/riot/index';
 import * as firebase from 'firebase';
 import CheckoutViewModel from './models/CheckoutViewModel'
