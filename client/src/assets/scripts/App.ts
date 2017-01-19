@@ -57,7 +57,7 @@ class App {
      */
     _setRoutes() {
         // Routes for the Application.
-        const routes = [
+        const pageRoutes = [
             { route:'/', tag:'layout-default', routes: [
                 { route:'/', tag:'home-view' },
             ]},
@@ -65,7 +65,7 @@ class App {
 
         // Start riot and router.
         riot.mount('*', {
-            routes,
+            pageRoutes,
             options: {},
         });
     }

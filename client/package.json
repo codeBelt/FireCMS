@@ -20,6 +20,7 @@
     "firebase": "3.6.3",
     "form2js": "1.0.0",
     "page": "1.7.1",
+    "qs": "6.2.1",
     "riot": "3.0.7",
     "structure-js": "0.14.9",
     "whatwg-fetch": "2.0.1"

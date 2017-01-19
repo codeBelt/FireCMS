@@ -11,7 +11,7 @@
         this.on('mount', () => {
             this.tagStack = [];
 
-            this.onMount(this.opts.routes, this.opts.options);
+            this.onMount(this.opts.pageRoutes, this.opts.options);
         });
 
         this.onMount = (routes, options) => {
@@ -73,18 +73,20 @@
         };
 
         this.setRouteTag = (route, mainroute, subparents) => {
-
             page(mainroute, (ctx, next) => {
                 this.unmountTags(subparents, ctx);
 
                 if (route.routes) {
                     const len = route.routes.filter(r => r.route === '/').length;
+
                     if (len > 0) {
                         next();
+                        return;
                     }
                 }
 
                 // Call after we're completely done with the route change
+                // Timeout needed so that browser complete push state cycle
                 setTimeout(() => {
                     this.onRouteComplete(route, ctx);
                 }, 0);
@@ -92,9 +94,9 @@
         };
 
         this.unmountTags = (tree, ctx) => {
-            delete this.opts.routes;
-            this.opts.page = page;
-            this.opts.params = ctx.params;
+            delete opts.routes;
+            opts.page = page;
+            opts.params = ctx.params;
 
             let nexttag;
             let tag = this;
@@ -110,7 +112,7 @@
                     // We assume the sequence of action->store->tag will update the presentation layer
                     //riot.update();
                 } else if (tag && route && route.tag) { // don't mount middleware
-                    nexttag = tag.setTag(route.tag, this.opts);
+                    nexttag = tag.setTag(route.tag, opts);
                 }
 
                 this.tagStack[idx] = {
