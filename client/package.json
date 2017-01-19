@@ -25,7 +25,14 @@
     "structure-js": "0.14.9",
     "whatwg-fetch": "2.0.1"
   },
-  "subDependencies": {},
+  "subDependencies": {
+    "structure-js": [
+      "structure-js/js/event/EventBroker",
+      "structure-js/js/model/BaseModel",
+      "structure-js/js/util/Util",
+      "structure-js/js/event/BaseEvent"
+    ]
+  },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.8.0",
     "babel-plugin-transform-class-properties": "6.19.0",
