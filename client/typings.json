@@ -3,5 +3,8 @@
   "globalDependencies": {
     "page": "registry:dt/page#1.5.0+20161128184045",
     "riot": "registry:dt/riot#2.6.0+20161005184000"
+  },
+  "dependencies": {
+    "qs": "registry:dt/qs#6.2.0+20160727175746"
   }
 }
