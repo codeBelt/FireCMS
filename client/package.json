@@ -22,7 +22,7 @@
     "page": "1.7.1",
     "qs": "6.2.1",
     "riot": "3.0.7",
-    "structure-js": "0.15.0",
+    "structure-js": "0.15.1",
     "whatwg-fetch": "2.0.1"
   },
   "subDependencies": {
