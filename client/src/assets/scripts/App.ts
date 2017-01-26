@@ -11,8 +11,13 @@ import CheckoutViewModel from './models/CheckoutViewModel'
  */
 class App {
 
-    constructor() {
+    private _pageRoutes:any = [
+        { route:'/', tag:'layout-default', routes: [
+            { route:'/', tag:'home-view' },
+        ]},
+    ];
 
+    constructor() {
         console.log(`CheckoutViewModel`, new CheckoutViewModel().pickHowOptions);
 
         firebase.initializeApp({
@@ -39,7 +44,11 @@ class App {
         //     }
         // })
 
-        this._setRoutes();
+        // Start riot and router.
+        riot.mount('*', {
+            pageRoutes: this._pageRoutes,
+            options: {},
+        });
     }
 
     /**
@@ -47,27 +56,8 @@ class App {
      * @param event {any}
      * @public
      */
-    public test(event:any):void {
+    public test(event: any): void {
         console.log(`hey`);
-    }
-
-    /**
-     * @method _setRoutes
-     * @private
-     */
-    _setRoutes() {
-        // Routes for the Application.
-        const pageRoutes = [
-            { route:'/', tag:'layout-default', routes: [
-                { route:'/', tag:'home-view' },
-            ]},
-        ];
-
-        // Start riot and router.
-        riot.mount('*', {
-            pageRoutes,
-            options: {},
-        });
     }
 
 }
