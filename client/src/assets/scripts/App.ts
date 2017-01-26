@@ -14,6 +14,7 @@ class App {
     private _pageRoutes:any = [
         { route:'/', tag:'layout-default', routes: [
             { route:'/', tag:'home-view' },
+            { route:'/second', tag:'second-view' },
         ]},
     ];
 
