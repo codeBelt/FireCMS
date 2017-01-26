@@ -1,14 +1,16 @@
 ###################################################################################################
 # ESLint rules enforcing Nerdery JavaScript standards
-# https://github.com/thenerdery/javascript-standards/linters
+# https://github.com/thenerdery/javascript-standards/tree/master/linters
 #
 # Last tested with eslint v2.13.1 and babel-eslint v6.1.0
 ###################################################################################################
 
 {
+  "plugins": ["html"],
   "env": {
     "browser": true,
-    "node": false
+    "node": false,
+    "es6": true
   },
   "globals": {
     "module": true,
@@ -16,7 +18,8 @@
     "define": true,
     "global": true,
     "process": true,
-    "es6": true
+    "google": true,
+    "riot": true,
   },
   "parser": "babel-eslint",
   "rules": {
@@ -55,7 +58,6 @@
 
     "no-dupe-class-members": 2,                   # Disallow duplicate class member names
     "no-class-assign": 2,                         # Disallow reassigning classes
-    "no-useless-constructor": 2,                  # Disallow unnecessary constructor
     "no-this-before-super": 2,                    # Disallow `this` before super()
 
     ###############################################################################################
@@ -78,11 +80,6 @@
         "markers": ["/", "*"]
       }
     }],
-    "valid-jsdoc": [2, {                          # Require docblocks match params/return type
-      "requireParamDescription": false,
-      "requireReturnDescription": false,
-      "requireReturn": false
-    }],
 
     ###############################################################################################
     # COMPARISON <https://github.com/thenerdery/javascript-standards#comparison>
@@ -103,7 +100,7 @@
     # FUNCTIONS <https://github.com/thenerdery/javascript-standards#functions>
     ###############################################################################################
 
-    "no-param-reassign": [2, {"props": true}],    # Disallow reassignment of parameters
+    "no-param-reassign": [2, {"props": false}],    # Disallow reassignment of parameters
     "max-params": [2, 5],                         # Disallow more than 5 parameters
     "prefer-rest-params": 2,                      # Require rest parameters instead of `arguments`
     "wrap-iife": [2, "outside"],                  # Require IIFEs to be wrapped
@@ -194,7 +191,7 @@
     "array-bracket-spacing": [2, "never"],        # Disallow spaces inside of brackets
     "object-curly-spacing": [2, "always"],        # Require spaces inside object curly braces
     "max-len": [2, {                              # Disallow lines over 100 characters
-      "code": 100,
+      "code": 200,
       "ignoreUrls": true
     }],
     "keyword-spacing": [2, {                      # Require spacing before and after keywords

@@ -62,19 +62,20 @@
 
         this.setRouteUse = (route, mainroute) => {
             page(mainroute, (ctx, next) => {
-                // This code below causes performance issues
-                // Seems to be that the same unmount procedure can be called twice (also in setRouteTag())
-                //if (mainroute !== '*') { // don't call unmount with wild
-                //     this.unmountTags([route], ctx);
-                //}
-
                 route.use(ctx, next, page);
             });
         };
 
         this.setRouteTag = (route, mainroute, subparents) => {
             page(mainroute, (ctx, next) => {
-                this.unmountTags(subparents, ctx);
+                RouteAction.setRouteInfo(
+                    ctx.pathname,
+                    this.getQueryString(ctx.path),
+                    ctx.hash,
+                    ctx.params
+                );
+
+                this.mountTags(subparents, ctx);
 
                 if (route.routes) {
                     const len = route.routes.filter(r => r.route === '/').length;
@@ -93,10 +94,10 @@
             });
         };
 
-        this.unmountTags = (tree, ctx) => {
+        this.mountTags = (tree, ctx) => {
             delete opts.routes;
-            opts.page = page;
-            opts.params = ctx.params;
+            this.opts.page = page;
+            this.opts.params = ctx.params;
 
             let nexttag;
             let tag = this;
@@ -112,7 +113,7 @@
                     // We assume the sequence of action->store->tag will update the presentation layer
                     //riot.update();
                 } else if (tag && route && route.tag) { // don't mount middleware
-                    nexttag = tag.setTag(route.tag, opts);
+                    nexttag = tag.mountTag(route.tag, this.opts);
                 }
 
                 this.tagStack[idx] = {
@@ -140,18 +141,21 @@
             }
         };
 
+        this.mountTag = (tagname, routeopts) => {
+            const node = this.root.childNodes[0];
+            node.setAttribute('data-is', tagname)
+            return riot.mount(tagname, routeopts);
+        };
+
         // Called after we're completely done with the route change
         this.onRouteComplete = (route, ctx) => {
-            RouteAction.meta({
-                title: route.title
-            });
-
-            RouteAction.onRouteChange({
-                path: ctx.pathname,
-                queryString: this.getQueryString(ctx.path),
-                hash: ctx.hash,
-                routeParams: ctx.params,
-            });
+            RouteAction.setTitle(route.title);
+            RouteAction.setRouteInfo(
+                ctx.pathname,
+                this.getQueryString(ctx.path),
+                ctx.hash,
+                ctx.params
+            );
         };
 
         // Can't use ctx.queryString here since there is a bug in its decoding,
@@ -163,11 +167,6 @@
             return queryString;
         };
 
-        this.setTag = (tagname, routeopts) => {
-            const node = this.root.childNodes[0];
-            node.setAttribute('data-is', tagname)
-            return riot.mount(tagname, routeopts);
-        };
     </script>
 
 </route-handler>

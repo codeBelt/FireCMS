@@ -3,7 +3,7 @@
 SET BASE=%~dp0
 SET TEMP_DIR=%BASE%node\temp\
 SET TEMP_MSI=%TEMP_DIR%node%BIT%.msi
-SET NODE_VERSION=6.5.0
+SET NODE_VERSION=6.3.0
 REM http://nodejs.org/dist/npm stopped providing npm distributions at version 1.4.9. As a workaround, we first download this older 1.4.9 npm version, and then manually run a command to upgrade to the latest npm version
 SET NPM_VERSION_OLD=1.4.9
 SET NPM_VERSION=3.3.12
@@ -78,6 +78,7 @@ SET PATH=%PATH%;%AppData%\npm;%ProgramFiles%\nodejs\
 call rmdir /s /q node_modules
 call npm cache clean
 call npm install --global gulp-cli
+call npm install --global typings
 
 goto finish
 

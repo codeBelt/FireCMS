@@ -9,7 +9,11 @@ import gulp from 'gulp';
 import notify from './notify';
 
 function watchMedia() {
-    gulp.watch(`${process.env.DIRECTORY_SRC}/assets/media/**/*`, () => {
+    gulp.watch([
+        `${process.env.DIRECTORY_SRC}/assets/media/fonts/**/*`,
+        `${process.env.DIRECTORY_SRC}/assets/media/images/**/*`,
+        `${process.env.DIRECTORY_SRC}/assets/data/**/*`,
+    ], () => {
         notify.log('MEDIA: file update detected, rebuilding...');
         buildMedia();
     });
@@ -19,10 +23,11 @@ function buildMedia() {
     const browser = browserSync.get('local');
 
     return gulp
-        .src(
-            `${process.env.DIRECTORY_SRC}/assets/media/**/*`,
-            { base: process.env.DIRECTORY_SRC }
-        )
+        .src([
+            `${process.env.DIRECTORY_SRC}/assets/media/fonts/**/*`,
+            `${process.env.DIRECTORY_SRC}/assets/media/images/**/*`,
+            `${process.env.DIRECTORY_SRC}/assets/data/**/*`,
+        ], { base: process.env.DIRECTORY_SRC })
         .pipe(notify.onError('MEDIA: error'))
         .pipe(gulp.dest(process.env.DIRECTORY_DEST))
         .on('end', notify.onLog('MEDIA: rebuild complete'))

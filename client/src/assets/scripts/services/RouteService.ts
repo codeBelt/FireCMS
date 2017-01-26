@@ -1,18 +1,9 @@
 import * as qs from 'qs';
 
-/**
- * @class RouteService
- * @constructor
- **/
 class RouteService {
 
     /**
      * A simple helper method to create a url route from an unlimited number of arguments.
-     *
-     * @method buildRoute
-     * @param ...rest {...rest}
-     * @return {string}
-     * @static
      * @example
      *      const someProperty = 'api/endpoint';
      *      const queryObject = {type: 'car', name: encodeURIComponent('Telsa Motors')};
@@ -21,7 +12,7 @@ class RouteService {
      *
      *      //Creates 'api/endpoint/path/7?type=car&name=Telsa%20Motors'
      */
-    static buildRoute(...rest) {
+    public static buildRoute(...rest): string {
         rest.forEach((value, index, array) => {
             if (typeof value === 'object') {
                 array[index] = `?${RouteService.stringify(value)}`;
@@ -31,33 +22,22 @@ class RouteService {
         // Filter out empty strings from the array
         rest = rest.filter(Boolean);
 
-        let route = rest.join('/');
-        // Remove extra back slashes
-        route = route.replace(/\/\//g, '/');
-        // Add back slash since we remove it from the "http://"
-        route = route.replace(':/', '://');
-        // Remove the back slash in front of a hash
-        route = route.replace('/#', '#');
+        let route: string = rest.join('/');
+        route = route.replace(/\/\//g, '/'); // Remove extra back slashes
+        route = route.replace(':/', '://'); // Add back slash since we remove it from the "http://"
+        route = route.replace('/#', '#'); // Remove the back slash in front of a hash
 
         return route;
     }
 
-    /**
-     * @method stringify
-     * @static
-     */
-    static stringify(obj) {
+    public static stringify(obj: any): string {
         return qs.stringify(obj);
     }
 
-    /**
-     * @method parse
-     * @static
-     */
-    static parse(str) {
-        console.log(`qs`, qs);
+    public static parse(str: string): any {
         return qs.parse(str);
     }
+
 }
 
 export default RouteService;

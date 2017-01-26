@@ -1,22 +1,25 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "noImplicitAny": false,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true
-  },
   "atom": {
     "rewriteTsconfig": false
   },
   "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "types": [
+      "env"
+    ]
+  },
   "filesGlob": [
   ],
   "files": [
     "typings/index.d.ts"
   ],
   "exclude": [
+    "**/*.json"
   ]
 }

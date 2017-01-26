@@ -1,10 +1,9 @@
 docs/
 node/
-../node_modules/
+node_modules/
 web/
 .idea/
-
 .DS_Store
 ._.DS_Store
-env/local.env
 npm-debug.log
+env/local.env

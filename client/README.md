@@ -4,12 +4,11 @@ This document describes the Front-end build process.
 
 The following tools are used:
 
- * Build - Node 6.5.0, Gulp
- * Packages - Npm, Bower
- * Docs - YuiDocs
- * JavaScript - Browserify, Babelify, Uglify, ESLint
- * Stylesheets - PostCSS, CSSNext, CSSClean
- * HTML - Handlebars
+ * Build - Node 6.3.0, Gulp
+ * Packages - Bower, Npm
+ * JavaScript - Typescript, Browserify, Babelify, Uglify, TSLint
+ * Stylesheets - PostCSS, CSSNext
+ * Markup - Riot
  * Images - ImageMin
 
 ## Prereqs
@@ -55,7 +54,7 @@ Generates documentation based on JavaScript docblocks, writes to /docs.
 
 Lints all JavaScript files for syntax issues.
 
-    $ npm run lint
+    $ npm run lint 
 
 ## Build Configuration
 
@@ -76,10 +75,8 @@ Two separate bundles are created for JavaScript:
 
 Use npm whenever possible to install third party libraries. Add a new entry in package.json, under "dependencies"
 
-If a library you want to use is NOT hosted in npm, do the following:
+If a library does not support TypeScript, a Type definition file should be installed as follows.
 
- 1. Add an entry to the file bower.json
- 1. Run `bower install` to download the library to /assets/vendor
- 1. Add an alias for the library in package.json under "browser"
- 1. If the library is not CommonJS-compatible, add an entry to "browserify-shim"
- 1. Please commit all libraries in /assets/vendor to source control
+1. `npm install -g typings` (if not already installed)
+1. `typings search libraryname` This will display a list of known type definitions to download.
+1. Install the appropriate typing using the comand `typings search dt~libraryname --save --global`. The type file will be installed under /typings.

@@ -50,7 +50,7 @@
 	}
 }
 
-@media print,projection {
+@media print {
 	.str {
 		color: #060;
 	}

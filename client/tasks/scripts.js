@@ -11,7 +11,7 @@ import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import notify from './notify';
-import pkg from '../package.json';
+import pkg from './../package.json';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
@@ -25,11 +25,9 @@ function buildScripts() {
         cache: {},
         packageCache: {},
         plugin: plugins,
-        extensions: ['.js', '.ts'],
         debug: process.env.SOURCE_MAPS === 'true',
         entries: [`${process.env.DIRECTORY_SRC}/assets/scripts/main.ts`],
         paths: [`./${process.env.DIRECTORY_SRC}/assets/scripts`],
-        node: true,
     };
 
     const bundler = browserify(options)

@@ -7,28 +7,39 @@
  */
 
 import browserSync from 'browser-sync';
+import browserSyncSpa from 'browser-sync-spa';
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
 function startServer() {
     const browser = browserSync.get('local');
+    browser.use(browserSyncSpa({}));
 
-    browser.init({
-        port: process.env.SERVER_PORT,
-        ui: { port: process.env.SERVER_UI_PORT },
-        open: process.env.SERVER_OPEN === 'true',
-        server: { baseDir: process.env.DIRECTORY_DEST },
-        notify: false,
-    }, (error, browser) => {
-        if (error) {
-            console.warn(error);
+    browser.init(
+        {
+            port: process.env.SERVER_PORT,
+            ui: { port: process.env.SERVER_UI_PORT },
+            open: process.env.SERVER_OPEN === 'true',
+            files: process.env.DIRECTORY_DEST,
+            server: { baseDir: process.env.DIRECTORY_DEST },
+            notify: false,
+            https: false,
+            ghostMode: {
+                clicks: false,
+                forms: false,
+                scroll: false,
+            },
+        },
+        (error, browser) => {
+            if (error) {
+                console.warn(error);
+            }
         }
-    });
-}
-
-export default function serve() {
-    return runSequence('build', 'startServer');
+    );
 }
 
 gulp.task('startServer', startServer);
 
+export default function serve() {
+    return runSequence('build', 'startServer');
+}

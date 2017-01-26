@@ -4,7 +4,7 @@ BASE="$(cd "$(dirname "$_")"; pwd)"
 PLATFORM=$(uname | tr '[A-Z]' '[a-z]')
 ARCH=$(getconf LONG_BIT)
 NODE_DIR="$HOME/.node"
-NODE_VERSION="6.5.0"
+NODE_VERSION="6.3.0"
 
 print_help()
 {
@@ -62,6 +62,7 @@ install ()
     rm -rf node_modules
     npm cache clean
     npm install --global gulp-cli
+    npm install --global typings
     log 'OK'
 
     printf '=============================================================\n'

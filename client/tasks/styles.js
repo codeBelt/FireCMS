@@ -6,21 +6,27 @@
 
 import atImport from 'postcss-import';
 import apply from 'postcss-apply';
+import urlrev from 'postcss-urlrev';
 import browserSync from 'browser-sync';
-import cleanCSS from 'gulp-clean-css';
 import cssnext from 'postcss-cssnext';
+import cleanCSS from 'gulp-clean-css';
 import discardComments from 'postcss-discard-comments';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
-import postcss from 'gulp-postcss';
-import sourcemaps from 'gulp-sourcemaps';
 import notify from './notify';
+import postcss from 'gulp-postcss';
+import postcssFor from 'postcss-for';
+import simpleVars from 'postcss-simple-vars';
+import sourcemaps from 'gulp-sourcemaps';
 
 const processors = [
     atImport,
     discardComments,
     apply,
+    postcssFor,
+    simpleVars,
     cssnext,
+    urlrev({ relativePath: 'src/assets/styles/'}),
 ];
 
 function watchStyles() {

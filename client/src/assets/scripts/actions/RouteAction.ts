@@ -1,42 +1,33 @@
 import EventBroker from 'structure-js/js/event/EventBroker';
-import RouteModel from '../models/RouteModel';
+import * as page from 'page';
 import RouteService from '../services/RouteService';
-import page from 'page';
+import RouteModel from '../models/RouteModel';
 
 /**
- * Sets current route
- *
- * @class RouteAction
- * @constructor
+ * Action class help facilitate passing data to the {{#crossLink "EventBroker"}}{{/crossLink}}(Global Dispatcher).
+ * Pertains to the Flux Architecture Lifecycle.
  **/
 class RouteAction {
 
-    SET = 'RouteAction.SET';
+    public readonly SET_ROUTE_MODEL : string = 'RouteAction.SET_ROUTE_MODEL';
 
     /**
      * Navigates user to a new URL
      *
-     * @method navigateTo
-     * @public
-     * @usage
+     * @example
      *     RouteAction.navigateTo('cars', 'path', 7, { type: 'car', name: 'Tesla Motors'});
      *     Creates 'cars/path/7/?type=car&name=Telsa%20Motors'
      */
-    navigateTo(...rest) {
-        const route = RouteService.buildRoute(...rest);
-        page(route);
+    public navigateTo(...rest: Array<any>): void {
+        const route: string = RouteService.buildRoute(...rest);
+        page(route); // tell page.js to update URL history
     }
 
-    /**
-     * @method meta
-     * @param options {{ title: string }}
-     * @public
-     */
-    meta(options) {
-        let title = 'Hy-Vee Market Grille';
+    public setTitle(pageName: string): void {
+        let title: string = "FireCMS";
 
-        if (options != null && options.title != null) {
-            title = `${options.title} | ${title}`;
+        if (pageName != null) {
+            title += ' | ' + pageName;
         }
 
         document.title = title;
@@ -45,27 +36,20 @@ class RouteAction {
     /**
      * Automatically called every time the internal router changes.
      * Notifies everyone about our current route state
-     * DO NOT call manually, use RouteAction.route() instead
-     *
-     * @method onRouteChange
-     * @private
-     * @path {string} The current path
-     * @routeParams {object} Variables extracted from the route, like :itemId
-     * @queryString {string} The current query string
-     * @hash {string} The current hash
+     * DO NOT call in code, use RouteAction.route() instead
      */
-    onRouteChange(options) {
-        const routeModel = new RouteModel();
-        routeModel.path = options.path;
-        routeModel.queryObject = RouteService.parse(options.queryString);
-        routeModel.hash = options.hash;
-        routeModel.routeParams = options.routeParams;
+    public setRouteInfo(path: string, queryString: string, hash: string, routeParams: any): void {
+        const routeModel: RouteModel = new RouteModel();
+        routeModel.path = path;
+        routeModel.queryObject = RouteService.parse(queryString);
+        routeModel.hash = hash;
+        routeModel.routeParams = routeParams;
 
         if (routeModel.hash !== 'noscroll') {
             window.scrollTo(0, 0);
         }
 
-        EventBroker.dispatchEvent(this.SET, { routeModel });
+        EventBroker.dispatchEvent(this.SET_ROUTE_MODEL, { routeModel });
     }
 }
 
