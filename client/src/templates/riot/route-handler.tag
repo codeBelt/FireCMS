@@ -130,7 +130,7 @@
 
                 if (!tag) {
                     if (nexttag[0]) {
-                        tag = nexttag[0].root.querySelector('route-handler')
+                        tag = nexttag[0].root.querySelector('route-handler');
                     }
                 }
             }
@@ -143,7 +143,7 @@
 
         this.mountTag = (tagname, routeopts) => {
             const node = this.root.childNodes[0];
-            node.setAttribute('data-is', tagname)
+            node.setAttribute('data-is', tagname);
             return riot.mount(tagname, routeopts);
         };
 
@@ -163,7 +163,9 @@
         this.getQueryString = (path) => {
             let queryString = '';
             const split = path.split('?');
-            if (split.length > 1) { queryString = split[1]; }
+            if (split.length > 1) {
+                queryString = split[1];
+            }
             return queryString;
         };
 
