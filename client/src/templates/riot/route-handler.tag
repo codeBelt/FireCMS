@@ -16,6 +16,7 @@
 
         this.onMount = (routes, options) => {
             if (routes) {
+
                 this.findRoute(null, routes);
 
                 if (options && options.base) {
@@ -23,6 +24,34 @@
                     delete options.base;
                 }
                 page(options);
+            }
+
+//            console.log(`after`, routes);
+//            const routes = [
+//                { route:'/canada/', tag:'layout-default', routes: [
+//                    { route:'/', tag:'ontario-view' },
+//                    { route:'/manitoba/', tag:'manitoba-view' },
+//                ]},
+//            ];
+//            routes.forEach(obj => this._buildFullPath(obj));
+//
+//            console.log(`routes`, routes);
+//
+//
+//            if (this.opts.pageRoutes) {
+//                this._onMount(this.opts.pageRoutes, this.opts.options);
+//            }
+        };
+
+        this._buildFullPath = obj => {
+            if(obj.routes) {
+                const parentPath = obj.route;
+                obj
+                    .routes
+                    .forEach(o => {
+                        let fullPath = parentPath + o.route;
+                        o.route = fullPath.replace(/\/\//g, '/');
+                    })
             }
         };
 
@@ -68,13 +97,14 @@
 
         this.setRouteTag = (route, mainroute, subparents) => {
             page(mainroute, (ctx, next) => {
-                RouteAction.setRouteInfo(
-                    ctx.pathname,
-                    this.getQueryString(ctx.path),
-                    ctx.hash,
-                    ctx.params
-                );
+//                RouteAction.setRouteInfo(
+//                    ctx.pathname,
+//                    this.getQueryString(ctx.path),
+//                    ctx.hash,
+//                    ctx.params
+//                );
 
+                console.log(`route change`, ctx);
                 this.mountTags(subparents, ctx);
 
                 if (route.routes) {
@@ -98,7 +128,7 @@
             delete opts.routes;
             this.opts.page = page;
             this.opts.params = ctx.params;
-
+debugger
             let nexttag;
             let tag = this;
             let idx;

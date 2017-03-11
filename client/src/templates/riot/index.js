@@ -5,8 +5,8 @@ import './route-handler.tag';
 import './layout-default.tag';
 
 // Views
-import './views/home/home-view.tag';
-import './views/home/second-view.tag';
+import './views/home/ontario-view.tag';
+import './views/home/manitoba-view.tag';
 
 // Modals
 

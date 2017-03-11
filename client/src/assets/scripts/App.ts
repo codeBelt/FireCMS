@@ -13,24 +13,25 @@ class App {
 
     private _pageRoutes:any = [
         { route:'/', tag:'layout-default', routes: [
-            { route:'/', tag:'home-view' },
-            { route:'/second', tag:'second-view' },
+            { route:'/', tag:'ontario-view' },
+            { route:'/manitoba', tag:'manitoba-view' },
         ]},
     ];
+
 
     constructor() {
         console.log(`CheckoutViewModel`, new CheckoutViewModel().pickHowOptions);
 
-        firebase.initializeApp({
-            apiKey: 'AIzaSyDqBfvsMGjfiTXNHeG7RmcOl-AcyHM2AZY',
-            databaseURL: 'https://firecms-e950e.firebaseio.com'
-        });
-
-        const firebaseRef = firebase.database().ref();
-        const cms = firebaseRef.child('cms');
-        cms.on('value', snap => {
-            console.log(`snap`, snap.val());
-        });
+        // firebase.initializeApp({
+        //     apiKey: 'AIzaSyDqBfvsMGjfiTXNHeG7RmcOl-AcyHM2AZY',
+        //     databaseURL: 'https://firecms-e950e.firebaseio.com'
+        // });
+        //
+        // const firebaseRef = firebase.database().ref();
+        // const cms = firebaseRef.child('cms');
+        // cms.on('value', snap => {
+        //     console.log(`snap`, snap.val());
+        // });
 
         // cms.set({
         //     single: {

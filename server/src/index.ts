@@ -42,6 +42,7 @@ router.get('/', async (ctx, next) => {
     ]
   };
 
+
   await fsp.writeFile('hello1.txt', 'hello world');
   const contents = await fsp.readFile('hello1.txt', {encoding:'utf8'});
   console.log('contentss', contents);
